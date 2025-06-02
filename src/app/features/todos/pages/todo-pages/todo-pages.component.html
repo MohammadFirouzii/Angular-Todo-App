@@ -1,10 +1,4 @@
-<main class="todo-container">
-  <div>
-    <input
-      pInputText
-      [(ngModel)]="todoService.newTask"
-      placeholder="Enter New Task"
-    />
-    <button (click)="todoService.sentTask()">Add</button>
-  </div>
+<main class="todo-container flex flex-col">
+  <a routerLink="/AddTodoItem">Add NewTask</a>
+  <a routerLink="/TodoList">Todo List</a>
 </main>

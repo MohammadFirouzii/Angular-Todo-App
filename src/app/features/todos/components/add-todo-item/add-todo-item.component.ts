@@ -4,20 +4,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TodoService } from '../../services/todo.service';
 import { provideHttpClient } from '@angular/common/http';
-import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-todo-pages',
-  imports: [
-    FormsModule,
-    InputTextModule,
-    ButtonModule,
-    RouterLink,
-    RouterModule,
-  ],
-  templateUrl: './todo-pages.component.html',
-  styleUrl: './todo-pages.component.css',
+  selector: 'app-add-todo-item',
+  imports: [FormsModule, InputTextModule, ButtonModule],
+  templateUrl: './add-todo-item.component.html',
+  styleUrl: './add-todo-item.component.css',
 })
-export class TodoPagesComponent {
+export class AddTodoItemComponent {
   constructor(public todoService: TodoService) {}
 }

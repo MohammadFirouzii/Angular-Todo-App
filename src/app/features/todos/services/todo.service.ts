@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { TodoItem } from '../models/todo.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { response } from 'express';
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
   apiUrl = 'http://localhost:1337/api/tasks';
-  todoList: TodoItem[] = [];
   newTask: string = '';
   constructor(private http: HttpClient) {}
 
@@ -26,5 +26,18 @@ export class TodoService {
           console.log(respose);
         },
       });
+  }
+  getTask(): Observable<TodoItem[]> {
+    return this.http.get(this.apiUrl).pipe(
+      map((response: any) => {
+        return response.data.map((item: any): TodoItem => {
+          return {
+            id: item.id,
+            task: item.task,
+            completed: item.completed,
+          };
+        });
+      })
+    );
   }
 }

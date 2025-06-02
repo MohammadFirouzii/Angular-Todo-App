@@ -1,0 +1,12 @@
+<main class="todo-container flex items-center flex-col">
+  <h2 class="my-6">Angular Todo App</h2>
+  <div class="flex justify-center w-full">
+    <input
+      class="mr-10 w-2xl"
+      pInputText
+      [(ngModel)]="todoService.newTask"
+      placeholder="Enter New Task"
+    />
+    <button pButton (click)="todoService.sentTask()">Add</button>
+  </div>
+</main>

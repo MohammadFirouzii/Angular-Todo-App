@@ -1,1 +1,4 @@
-<p>todo-list works!</p>
+<div>
+  <app-todo-item *ngFor="let taskItem of todoList" [item]="taskItem">
+  </app-todo-item>
+</div>
